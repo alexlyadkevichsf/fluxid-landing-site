@@ -72,7 +72,6 @@ const PRICING_PLANS = [
     monthly: 0,
     yearly: 0,
     ctaLabel: "Start free",
-    highlight: false,
     features: [
       "Measures every vitality metric Fluxid tracks",
       "Reference ranges plus flags for out-of-range readings",
@@ -103,7 +102,6 @@ const PRICING_PLANS = [
     yearly:
       Math.round(8 * 12 * (1 - PRICING_ANNUAL_DISCOUNT) * 100) /
       100,
-    highlight: false,
     features: [
       "Everything in Ranger",
       "Widgets on your smartphone home screen for key readings",
@@ -379,9 +377,6 @@ export function Home() {
                       : "pricing__card"
                   }
                 >
-                  {plan.highlight ? (
-                    <span className="pricing__badge">Popular</span>
-                  ) : null}
                   <h3 className="pricing__name">{plan.name}</h3>
                   <p className="pricing__teaser">{plan.teaser}</p>
                   <div className="pricing__priceBlock">

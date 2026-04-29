@@ -990,30 +990,12 @@ code {
   box-shadow: 0 14px 32px -10px rgba(255, 77, 130, 0.18);
 }
 
-.pricing__badge {
-  position: absolute;
-  top: 12px;
-  right: 14px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 5px 10px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #ff2d8d 0%, #ff5f73 52%, #ffa24f 100%);
-  color: #fff;
-}
-
 .pricing__name {
   margin: 0;
-  padding-right: 4.5rem;
+  padding-right: 0;
   font-size: clamp(1.12rem, 2.2vw, 1.32rem);
   font-weight: 700;
   color: var(--text-h);
-}
-
-.pricing__card:not(.pricing__card--highlight) .pricing__name {
-  padding-right: 0;
 }
 
 .pricing__teaser {
