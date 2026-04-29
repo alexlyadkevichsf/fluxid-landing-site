@@ -45,6 +45,11 @@ const BODY_METRICS_ITEMS = [
   "Thigh Circumference (Mid-thigh)",
   "Calf Circumference",
 ];
+const BODY_METRICS_ROWS = [
+  BODY_METRICS_ITEMS.filter((_, index) => index % 3 === 0),
+  BODY_METRICS_ITEMS.filter((_, index) => index % 3 === 1),
+  BODY_METRICS_ITEMS.filter((_, index) => index % 3 === 2),
+];
 
 const WHAT_WE_SOLVE_TITLE = (
   <>
@@ -194,11 +199,22 @@ export function Home() {
         <h2 className="metrics-carousel__title">
           Calories are not always the answer, we will help you calculate
         </h2>
-        <div className="metrics-carousel__track" aria-hidden="true">
-          {[...BODY_METRICS_ITEMS, ...BODY_METRICS_ITEMS].map((item, index) => (
-            <span key={`${item}-${index}`} className="metrics-carousel__item">
-              {item}
-            </span>
+        <div className="metrics-carousel__rows" aria-hidden="true">
+          {BODY_METRICS_ROWS.map((row, rowIndex) => (
+            <div
+              key={`metrics-row-${rowIndex}`}
+              className={
+                rowIndex === 1
+                  ? "metrics-carousel__track metrics-carousel__track--reverse"
+                  : "metrics-carousel__track"
+              }
+            >
+              {[...row, ...row].map((item, index) => (
+                <span key={`${rowIndex}-${item}-${index}`} className="metrics-carousel__item">
+                  {item}
+                </span>
+              ))}
+            </div>
           ))}
         </div>
       </section>

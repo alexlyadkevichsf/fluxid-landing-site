@@ -457,14 +457,23 @@ code {
   color: var(--text);
 }
 
+.metrics-carousel__rows {
+  display: grid;
+  gap: clamp(8px, 1.6vw, 14px);
+}
+
 .metrics-carousel__track {
   display: inline-flex;
   align-items: center;
   gap: clamp(12px, 2vw, 20px);
   min-width: max-content;
   width: max-content;
-  padding: clamp(8px, 1.6vw, 12px) 0;
+  padding: clamp(4px, 1vw, 8px) 0;
   animation: metrics-marquee 52s linear infinite;
+}
+
+.metrics-carousel__track--reverse {
+  animation-direction: reverse;
 }
 
 .metrics-carousel__item {
