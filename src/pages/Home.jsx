@@ -288,6 +288,7 @@ export function Home() {
           layout="left"
           decorCurve={{ tone: "blue", flip: false }}
           splitTextMedia
+          splitMediaFirst
         >
           <div className="home-block__textStack">
             <p>
