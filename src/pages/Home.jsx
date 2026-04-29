@@ -62,44 +62,52 @@ const WHAT_WE_SOLVE_TITLE = (
   </>
 );
 
+const PRICING_ANNUAL_DISCOUNT = 0.2;
+
 const PRICING_PLANS = [
   {
-    key: "spark",
-    name: "Spark",
-    teaser: "Lightweight tracking for busy days",
-    monthly: 6.99,
-    yearly: 59,
+    key: "free",
+    name: "Free",
+    teaser: "Understand every metric, free forever.",
+    monthly: 0,
+    yearly: 0,
+    ctaLabel: "Start free",
+    highlight: false,
     features: [
-      "Daily weigh-in & mood",
-      "Simple trend charts",
-      "One home-screen widget",
+      "Measures every vitality metric Fluxid tracks",
+      "Reference ranges plus flags for out-of-range readings",
+      "Guidance on possible risks and how to move values toward normal",
     ],
   },
   {
-    key: "stride",
-    name: "Stride",
-    teaser: "Where most members find their rhythm",
-    monthly: 16.99,
-    yearly: 139,
+    key: "ranger",
+    name: "Ranger",
+    teaser: "History, sharing, reports, and nudges that move you.",
+    monthly: 5,
+    yearly:
+      Math.round(5 * 12 * (1 - PRICING_ANNUAL_DISCOUNT) * 100) /
+      100,
     highlight: true,
     features: [
-      "Everything in Spark",
-      "Challenges & streak savers",
-      "Metabolic-friendly insights",
-      "All widgets + focus modes",
+      "Everything in Free",
+      "Build historical trends across your measurements",
+      "Share progress with friends",
+      "Dashboards & reports plus notifications with tips and calls to action",
     ],
   },
   {
-    key: "apex",
-    name: "Apex",
-    teaser: "For power users and deep dives",
-    monthly: 29.99,
-    yearly: 249,
+    key: "evangelist",
+    name: "Evangelist",
+    teaser: "Widgets on your lock screen and polished PDF packs.",
+    monthly: 8,
+    yearly:
+      Math.round(8 * 12 * (1 - PRICING_ANNUAL_DISCOUNT) * 100) /
+      100,
+    highlight: false,
     features: [
-      "Everything in Stride",
-      "Weekly recap briefings",
-      "CSV export & history",
-      "Early access experiments",
+      "Everything in Ranger",
+      "Widgets on your smartphone home screen for key readings",
+      "Print-ready PDF exports for every report & dashboard layout",
     ],
   },
 ];
@@ -358,9 +366,12 @@ export function Home() {
                 aria-pressed={pricingYearly}
                 onClick={() => setPricingYearly(true)}
               >
-                Yearly
+                Yearly (−20%)
               </button>
             </div>
+            <p className="pricing__billingNote">
+              Annual billing applies a {PRICING_ANNUAL_DISCOUNT * 100}% discount versus paying monthly for twelve months.
+            </p>
             <ul className="pricing__grid">
               {PRICING_PLANS.map((plan) => (
                 <li
@@ -380,18 +391,26 @@ export function Home() {
                     {pricingYearly ? (
                       <>
                         <span className="pricing__amount">
-                          ${plan.yearly}
+                          $
+                          {(plan.monthly === 0
+                            ? "0"
+                            : Number(plan.yearly).toFixed(2).replace(/\.00$/, ""))}
                           <span className="pricing__period">/year</span>
                         </span>
-                        <span className="pricing__equiv">
-                          ~$
-                          {(plan.yearly / 12).toFixed(2)}
-                          /mo effective
-                        </span>
+                        {plan.monthly > 0 ? (
+                          <span className="pricing__equiv">
+                            ~$
+                            {(plan.yearly / 12).toFixed(2)}
+                            /mo effective
+                          </span>
+                        ) : null}
                       </>
                     ) : (
                       <span className="pricing__amount">
-                        ${plan.monthly.toFixed(2)}
+                        $
+                        {(plan.monthly === 0
+                          ? "0"
+                          : plan.monthly.toFixed(2).replace(/\.00$/, ""))}
                         <span className="pricing__period">/month</span>
                       </span>
                     )}
@@ -402,7 +421,7 @@ export function Home() {
                     ))}
                   </ul>
                   <a className="pricing__cta" href="#contact">
-                    Get {plan.name}
+                    {plan.ctaLabel ?? `Get ${plan.name}`}
                   </a>
                 </li>
               ))}
