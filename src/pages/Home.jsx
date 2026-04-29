@@ -16,6 +16,35 @@ const BADGE_GOOGLE_PLAY_DARK = encodeURI(
 );
 
 const MOBILE_SHOWCASE_LOTTIE = encodeURI(`${BASE_URL}Mobile App Showcase.json`);
+const HERO_SUBTITLE =
+  "A mobile app that measures your body parameters and alerts you to potential health issues.";
+const BODY_METRICS_ITEMS = [
+  "Body Mass Index",
+  "Pignet Index",
+  "Broca’s Index",
+  "Ponderal Index",
+  "Lean Body Mass",
+  "Waist-to-Hip Ratio",
+  "Waist-to-Height Ratio",
+  "Waist-to-Thigh Ratio",
+  "A Body Shape Index",
+  "Basal Metabolic Rate",
+  "Total Daily Energy Expenditure",
+  "Ideal Body Weight",
+  "Somatotype Assessment",
+  "Shoulder-to-Waist Ratio",
+  "Female Body Shape Categorization",
+  "Neck Circumference",
+  "Shoulder Circumference",
+  "Chest/Bust Circumference",
+  "Bicep Circumference (Relaxed and Flexed)",
+  "Forearm Circumference",
+  "Waist Circumference (Narrowest point)",
+  "Abdominal Circumference (At the navel)",
+  "Hip Circumference (Widest point)",
+  "Thigh Circumference (Mid-thigh)",
+  "Calf Circumference",
+];
 
 const WHAT_WE_SOLVE_TITLE = (
   <>
@@ -126,6 +155,7 @@ export function Home() {
                 </span>
               </span>
             </h1>
+            <p className="hero__subtitle">{HERO_SUBTITLE}</p>
             <div
               className={
                 typingDone
@@ -151,6 +181,19 @@ export function Home() {
             </div>
           </div>
           <HeroLottie />
+        </div>
+      </section>
+
+      <section className="metrics-carousel" aria-label="Body metrics overview">
+        <h2 className="metrics-carousel__title">Calories are not always the answer</h2>
+        <div className="metrics-carousel__trackWrap">
+          <div className="metrics-carousel__track" aria-hidden="true">
+            {[...BODY_METRICS_ITEMS, ...BODY_METRICS_ITEMS].map((item, index) => (
+              <span key={`${item}-${index}`} className="metrics-carousel__item">
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
