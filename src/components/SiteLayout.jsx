@@ -5,7 +5,11 @@ export function SiteLayout() {
     <>
       <header className="topbar">
         <Link to="/" className="topbar__logo" aria-label="Fluxid home">
-          <img src="/logo.png" alt="Fluxid" className="topbar__logo-image" />
+          <img
+            src={`${import.meta.env.BASE_URL}logo.png`}
+            alt="Fluxid"
+            className="topbar__logo-image"
+          />
         </Link>
 
         <nav className="topbar__nav" aria-label="Main navigation">
