@@ -395,6 +395,7 @@ code {
 
 @media (max-width: 840px) {
   .hero {
+    min-height: unset;
     padding-block: clamp(52px, 13vw, 118px);
   }
 
