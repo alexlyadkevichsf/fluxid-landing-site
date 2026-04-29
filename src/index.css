@@ -985,6 +985,11 @@ code {
   text-align: center;
 }
 
+#contact .home-block__content .newsletter__lead {
+  margin: 0 0 clamp(12px, 2vw, 20px);
+  line-height: 1.4;
+}
+
 .newsletter {
   width: 100%;
   max-width: min(100%, 34rem);
