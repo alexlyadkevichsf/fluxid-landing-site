@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { HeroDecorCurve } from "../components/HeroDecorCurve";
 import { HomeBlockDecorCurve } from "../components/HomeBlockDecorCurve";
 import { HeroLottie } from "../components/HeroLottie";
 import { PublicLottie } from "../components/PublicLottie";
+import { db } from "../lib/firebase";
 
 const HERO_TEXT = "Fluxid - We measure\nwhat truly\nmatters";
 const BASE_URL = import.meta.env.BASE_URL;
@@ -100,12 +102,17 @@ const PRICING_PLANS = [
     ],
   },
 ];
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function Home() {
   const [typed, setTyped] = useState("");
   const [typingDone, setTypingDone] = useState(false);
   const [qrShown, setQrShown] = useState(false);
   const [pricingYearly, setPricingYearly] = useState(false);
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterMessage, setNewsletterMessage] = useState("");
+  const [newsletterError, setNewsletterError] = useState("");
+  const [isSubmittingNewsletter, setIsSubmittingNewsletter] = useState(false);
 
   useEffect(() => {
     let i = 0;
@@ -132,6 +139,34 @@ export function Home() {
     const id = setTimeout(() => setQrShown(true), 420);
     return () => clearTimeout(id);
   }, []);
+
+  async function handleNewsletterSubmit(event) {
+    event.preventDefault();
+    const normalizedEmail = newsletterEmail.trim().toLowerCase();
+    if (!EMAIL_PATTERN.test(normalizedEmail)) {
+      setNewsletterError("Please enter a valid email address.");
+      setNewsletterMessage("");
+      return;
+    }
+
+    setIsSubmittingNewsletter(true);
+    setNewsletterError("");
+    setNewsletterMessage("");
+
+    try {
+      await addDoc(collection(db, "newsletter_subscribers"), {
+        email: normalizedEmail,
+        source: "landing-site",
+        createdAt: serverTimestamp(),
+      });
+      setNewsletterEmail("");
+      setNewsletterMessage("Thanks for subscribing. You are now on the list.");
+    } catch {
+      setNewsletterError("Subscription failed. Please try again in a moment.");
+    } finally {
+      setIsSubmittingNewsletter(false);
+    }
+  }
 
   return (
     <>
@@ -376,12 +411,42 @@ export function Home() {
 
         <HomeBlock
           id="contact"
-          title="Contact Us"
+          title="Get in Touch"
           decorCurve={{ tone: "blue", flip: false }}
         >
-          <p>
-            Email: <code>hello@fluxid.example</code>
+          <p className="newsletter__lead">
+            Stay in the loop and get exclusive bonuses for subscribing to our
+            newsletter.
           </p>
+          <form className="newsletter" onSubmit={handleNewsletterSubmit} noValidate>
+            <input
+              className="newsletter__input"
+              type="email"
+              inputMode="email"
+              autoComplete="email"
+              placeholder="Enter your email"
+              value={newsletterEmail}
+              onChange={(event) => setNewsletterEmail(event.target.value)}
+              aria-label="Email address"
+            />
+            <button
+              className="newsletter__submit"
+              type="submit"
+              disabled={isSubmittingNewsletter}
+            >
+              {isSubmittingNewsletter ? "Submitting..." : "Subscribe"}
+            </button>
+          </form>
+          {newsletterError ? (
+            <p className="newsletter__feedback newsletter__feedback--error" role="alert">
+              {newsletterError}
+            </p>
+          ) : null}
+          {newsletterMessage ? (
+            <p className="newsletter__feedback newsletter__feedback--success" role="status">
+              {newsletterMessage}
+            </p>
+          ) : null}
         </HomeBlock>
       </div>
 
