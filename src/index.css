@@ -1272,7 +1272,7 @@ code {
   width: auto;
   min-width: 0;
   align-self: stretch;
-  text-align: right;
+  text-align: left;
 }
 
 .home-block--left.home-block--split.home-block--splitMediaFirst .home-block__lottieWrap {
