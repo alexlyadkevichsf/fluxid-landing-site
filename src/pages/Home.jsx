@@ -192,8 +192,7 @@ export function Home() {
 
       <section className="metrics-carousel" aria-label="Body metrics overview">
         <h2 className="metrics-carousel__title">
-          Calories are not always the answer, we will help you calculate what truly
-          matters
+          Calories are not always the answer, we will help you calculate
         </h2>
         <div className="metrics-carousel__track" aria-hidden="true">
           {[...BODY_METRICS_ITEMS, ...BODY_METRICS_ITEMS].map((item, index) => (
