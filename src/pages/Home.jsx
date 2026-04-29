@@ -19,7 +19,7 @@ const BADGE_GOOGLE_PLAY_DARK = encodeURI(
 
 const MOBILE_SHOWCASE_LOTTIE = encodeURI(`${BASE_URL}Mobile App Showcase.json`);
 const HERO_SUBTITLE =
-  "The all-in-one app to measure body vitals,\nidentify risks, and guide your recovery";
+  "The all-in-one mobile app to measure body vitals,\nidentify risks, and guide your recovery";
 const BODY_METRICS_ITEMS = [
   "Body Mass Index",
   "Pignet Index",
@@ -126,8 +126,8 @@ export function Home() {
           intervalId = undefined;
           setTypingDone(true);
         }
-      }, 42);
-    }, 220);
+      }, 20);
+    }, 80);
 
     return () => {
       clearTimeout(startId);
@@ -288,7 +288,6 @@ export function Home() {
           layout="left"
           decorCurve={{ tone: "blue", flip: false }}
           splitTextMedia
-          splitMediaFirst
         >
           <div className="home-block__textStack">
             <p>
@@ -321,7 +320,7 @@ export function Home() {
               healthcare systems can handle.
             </p>
           </div>
-          <HeroLottie embed />
+          <PublicLottie src={MOBILE_SHOWCASE_LOTTIE} />
         </HomeBlock>
 
         <HomeBlock
