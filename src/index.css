@@ -378,6 +378,17 @@ code {
   }
 }
 
+@media (max-width: 840px) {
+  .hero__layout > .hero__lottieWrap:not(.hero__lottieWrap--embed) {
+    display: none;
+  }
+
+  .hero__storeRow,
+  .hero__storeRow--visible {
+    justify-content: center;
+  }
+}
+
 @media (min-width: 769px) and (max-width: 1024px) {
   .hero__lottieWrap {
     width: clamp(13rem, 30vw, 28rem);
