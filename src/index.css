@@ -436,6 +436,12 @@ code {
     max-width: min(100%, 42rem);
   }
 
+  .hero__subtitle--visible {
+    text-align: center;
+    font-size: 12px;
+    align-self: anchor-center;
+  }
+
   .hero__storeRow,
   .hero__storeRow--visible {
     margin-top: clamp(2.65rem, 11vw, 4.85rem);
@@ -504,9 +510,6 @@ code {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
-  text-align: center;
-  font-size: 12px;
-  align-self: anchor-center;
 }
 
 .metrics-carousel {
