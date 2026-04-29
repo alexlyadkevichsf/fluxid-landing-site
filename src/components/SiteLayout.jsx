@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 
 export function SiteLayout() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobileNav, setIsMobileNav] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 840px)");
@@ -40,12 +42,50 @@ export function SiteLayout() {
 
   const closeNav = () => setMenuOpen(false);
 
+  function handleLogoClick(event) {
+    if (
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.altKey ||
+      event.shiftKey
+    )
+      return;
+    event.preventDefault();
+    closeNav();
+    navigate("/", { replace: true });
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }
+
+  function handleTryItNowClick(event) {
+    closeNav();
+    if (
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.altKey ||
+      event.shiftKey
+    )
+      return;
+    if (location.pathname !== "/") return;
+    if (location.hash !== "#try-it-now") return;
+    event.preventDefault();
+    document
+      .getElementById("try-it-now")
+      ?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
   return (
     <>
       <header
         className={menuOpen ? "topbar topbar--menuOpen" : "topbar"}
       >
-        <Link to="/" className="topbar__logo" aria-label="Fluxid home">
+        <Link
+          to="/"
+          className="topbar__logo"
+          aria-label="Fluxid home"
+          onClick={handleLogoClick}
+        >
           <img
             src={`${import.meta.env.BASE_URL}logo.png`}
             alt="Fluxid"
@@ -96,7 +136,7 @@ export function SiteLayout() {
         <Link
           to="/#try-it-now"
           className="topbar__tryBtn"
-          onClick={closeNav}
+          onClick={handleTryItNowClick}
         >
           Get Started Today
         </Link>
@@ -126,14 +166,6 @@ export function SiteLayout() {
       <footer className="footer">
         <span>
           © {new Date().getFullYear()} Fluxid — All rights reserved.
-        </span>
-        <span className="footer__links">
-          <Link to="/privacy" className="footer__link">
-            Privacy
-          </Link>
-          <Link to="/terms" className="footer__link">
-            Terms
-          </Link>
         </span>
       </footer>
     </>

@@ -12,7 +12,9 @@ export function ScrollToHash() {
 
     const id = decodeURIComponent(location.hash.replace(/^#/, ""));
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (!el) return;
+    const block = id === "try-it-now" ? "center" : "start";
+    el.scrollIntoView({ behavior: "smooth", block });
   }, [location.pathname, location.hash]);
 
   return null;
