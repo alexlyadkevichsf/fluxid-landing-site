@@ -669,6 +669,7 @@ code {
 
 .home-block + .home-block {
   margin-top: var(--section-gap);
+  align-content: center;
 }
 
 .home-block--decorCurve {
