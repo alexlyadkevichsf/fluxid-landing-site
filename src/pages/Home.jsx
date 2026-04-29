@@ -18,6 +18,7 @@ const BADGE_GOOGLE_PLAY_DARK = encodeURI(
 );
 
 const MOBILE_SHOWCASE_LOTTIE = encodeURI(`${BASE_URL}Mobile App Showcase.json`);
+const ACID_CHARITY_LOTTIE = encodeURI(`${BASE_URL}Acid charity animation.json`);
 const HERO_SUBTITLE =
   "The all-in-one mobile app to measure body vitals,\nidentify risks, and guide your recovery";
 const BODY_METRICS_ITEMS = [
@@ -321,7 +322,7 @@ export function Home() {
               healthcare systems can handle.
             </p>
           </div>
-          <PublicLottie src={MOBILE_SHOWCASE_LOTTIE} />
+          <PublicLottie src={ACID_CHARITY_LOTTIE} />
         </HomeBlock>
 
         <HomeBlock
