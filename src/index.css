@@ -416,7 +416,10 @@ code {
 
   .hero__subtitle {
     margin-top: 0;
+    margin-inline: auto;
+    max-width: min(100%, 42rem);
     font-size: clamp(11px, 2.95vw, 14px);
+    text-align: center;
   }
 
   .hero__storeRow,
