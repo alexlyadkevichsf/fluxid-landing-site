@@ -687,6 +687,7 @@ code {
 .home-block--decorCurve:not(.home-block--left) .home-block__title,
 .home-block--decorCurve:not(.home-block--left) .home-block__content {
   margin-inline: auto;
+  justify-items: center;
 }
 
 /* Full-viewport width so curves aren’t clipped to the narrow content column */
