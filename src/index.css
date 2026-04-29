@@ -379,8 +379,38 @@ code {
 }
 
 @media (max-width: 840px) {
+  .hero__layout {
+    display: block;
+    max-width: 100%;
+  }
+
+  .hero__textCol {
+    max-width: 100%;
+  }
+
   .hero__layout > .hero__lottieWrap:not(.hero__lottieWrap--embed) {
     display: none;
+  }
+
+  .hero__title,
+  .hero__overlay {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero__sizer,
+  .hero__typed {
+    white-space: normal;
+  }
+
+  .hero__title {
+    font-size: clamp(1.85rem, 6.2vw, 3rem);
+    letter-spacing: 0.06em;
+    line-height: 1.14;
+  }
+
+  .hero__subtitle {
+    font-size: clamp(11px, 2.95vw, 14px);
   }
 
   .hero__storeRow,
@@ -1478,7 +1508,7 @@ code {
 @media (max-width: 840px) {
   .topbar {
     justify-content: space-between;
-    position: relative;
+    position: sticky;
   }
 
   .topbar__logo {
