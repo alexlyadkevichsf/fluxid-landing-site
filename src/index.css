@@ -48,6 +48,7 @@
 @media (max-width: 840px) {
   :root {
     --section-gap: clamp(18px, 3.8vw, 28px);
+    --page-inline: clamp(20px, 5.5vw, 46px);
   }
 
   .home__below {
@@ -57,6 +58,14 @@
   .metrics-carousel {
     padding-top: clamp(10px, 2vw, 18px);
     padding-bottom: clamp(16px, 3.2vw, 30px);
+  }
+
+  .home__qrStrip {
+    padding-inline: var(--page-inline);
+  }
+
+  .footer {
+    padding-inline: var(--page-inline);
   }
 }
 
@@ -721,7 +730,8 @@ code {
   width: 100%;
   max-width: min(100%, 56rem);
   margin-inline: auto;
-  padding: 0 0 clamp(32px, 6vw, 64px);
+  padding-inline: var(--page-inline);
+  padding-bottom: clamp(32px, 6vw, 64px);
 }
 
 .home-block {
