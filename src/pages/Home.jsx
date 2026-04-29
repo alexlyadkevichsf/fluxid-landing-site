@@ -17,7 +17,7 @@ const BADGE_GOOGLE_PLAY_DARK = encodeURI(
 
 const MOBILE_SHOWCASE_LOTTIE = encodeURI(`${BASE_URL}Mobile App Showcase.json`);
 const HERO_SUBTITLE =
-  "The all-in-one app to measure body vitals, identify risks, and guide your recovery";
+  "The all-in-one app to measure body vitals,\nidentify risks, and guide your recovery";
 const BODY_METRICS_ITEMS = [
   "Body Mass Index",
   "Pignet Index",
@@ -155,7 +155,13 @@ export function Home() {
                 </span>
               </span>
             </h1>
-            <p className="hero__subtitle">{HERO_SUBTITLE}</p>
+            <p
+              className={
+                typingDone ? "hero__subtitle hero__subtitle--visible" : "hero__subtitle"
+              }
+            >
+              {HERO_SUBTITLE}
+            </p>
             <div
               className={
                 typingDone

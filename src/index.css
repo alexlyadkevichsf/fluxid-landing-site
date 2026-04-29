@@ -315,6 +315,8 @@ code {
     transition-delay: 0s;
   }
 
+  .hero__subtitle,
+  .hero__subtitle--visible,
   .hero__storeRow,
   .hero__storeRow--visible {
     opacity: 1;
@@ -423,6 +425,18 @@ code {
   white-space: pre-line;
   text-align: left;
   color: var(--text);
+  opacity: 0;
+  transform: translateY(0.65rem);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.hero__subtitle--visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .metrics-carousel {
