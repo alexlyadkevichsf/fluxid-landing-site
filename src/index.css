@@ -991,6 +991,7 @@ code {
 }
 
 .newsletter {
+  --newsletter-submit-width: 164px;
   width: 100%;
   max-width: min(100%, 34rem);
   display: flex;
@@ -1017,6 +1018,7 @@ code {
 }
 
 .newsletter__submit {
+  min-width: var(--newsletter-submit-width);
   min-height: 44px;
   padding: 0 20px;
   border: none;
@@ -1044,6 +1046,9 @@ code {
 
 .newsletter__feedback--error {
   color: #c0374f;
+  width: min(100%, calc(34rem - var(--newsletter-submit-width) - 12px));
+  text-align: center;
+  font-size: 0.6rem;
 }
 
 .newsletter__feedback--success {
