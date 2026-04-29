@@ -45,6 +45,21 @@
   }
 }
 
+@media (max-width: 840px) {
+  :root {
+    --section-gap: clamp(18px, 3.8vw, 28px);
+  }
+
+  .home__below {
+    padding-bottom: clamp(18px, 3.8vw, 36px);
+  }
+
+  .metrics-carousel {
+    padding-top: clamp(10px, 2vw, 18px);
+    padding-bottom: clamp(16px, 3.2vw, 30px);
+  }
+}
+
 html {
   scroll-padding-top: var(--scroll-padding-top);
 }
@@ -390,7 +405,7 @@ code {
 
   .hero__textCol {
     max-width: 100%;
-    gap: clamp(1.35rem, 5vw, 2.5rem);
+    gap: clamp(1rem, 4vw, 1.75rem);
   }
 
   .hero__layout > .hero__lottieWrap:not(.hero__lottieWrap--embed) {
@@ -422,7 +437,7 @@ code {
 
   .hero__storeRow,
   .hero__storeRow--visible {
-    margin-top: 0;
+    margin-top: clamp(2.65rem, 11vw, 4.85rem);
     gap: clamp(16px, 4.8vw, 30px);
     justify-content: center;
   }
