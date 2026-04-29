@@ -1099,6 +1099,15 @@ code {
   max-width: min(100%, 56rem);
 }
 
+#contact.home-block--left .home-block__title,
+#contact.home-block--left .home-block__content {
+  text-align: center;
+}
+
+#contact.home-block--left .home-block__content {
+  align-items: center;
+}
+
 .home-block--left .home-block__lottieWrap {
   margin: 0;
   max-width: min(100%, 28rem);
