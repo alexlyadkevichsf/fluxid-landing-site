@@ -448,8 +448,13 @@ code {
 
 .metrics-carousel__title {
   margin: 0 0 clamp(16px, 3vw, 28px);
-  font-size: clamp(1.4rem, 3.4vw, 2.1rem);
-  text-align: center;
+  font-size: clamp(14px, 2.2vw, 18px);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  text-align: left;
+  color: var(--text);
 }
 
 .metrics-carousel__track {
