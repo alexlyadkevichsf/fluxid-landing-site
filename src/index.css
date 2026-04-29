@@ -662,7 +662,7 @@ code {
 }
 
 .home-block:first-child {
-  margin-top: clamp(20px, 4vw, 36px);
+  margin-top: clamp(40px, 8vw, 72px);
 }
 
 .home-block + .home-block {
