@@ -124,7 +124,9 @@ export function SiteLayout() {
       </main>
 
       <footer className="footer">
-        <span>© {new Date().getFullYear()} Fluxid</span>
+        <span>
+          © {new Date().getFullYear()} Fluxid — All rights reserved.
+        </span>
         <span className="footer__links">
           <Link to="/privacy" className="footer__link">
             Privacy
