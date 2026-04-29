@@ -971,6 +971,8 @@ code {
 .newsletter__lead {
   margin: 0;
   color: var(--text);
+  align-self: center;
+  text-align: center;
 }
 
 .newsletter {
@@ -979,6 +981,8 @@ code {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  align-self: center;
+  justify-content: center;
 }
 
 .newsletter__input {
@@ -1019,6 +1023,8 @@ code {
 .newsletter__feedback {
   margin: 0;
   font-size: 0.9rem;
+  align-self: center;
+  text-align: center;
 }
 
 .newsletter__feedback--error {

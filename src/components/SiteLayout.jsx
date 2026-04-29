@@ -23,7 +23,7 @@ export function SiteLayout() {
             Pricing
           </Link>
           <Link to="/#contact" className="topbar__link">
-            Contact Us
+            Get in Touch
           </Link>
         </nav>
 
