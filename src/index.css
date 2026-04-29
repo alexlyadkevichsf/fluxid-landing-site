@@ -179,7 +179,7 @@ code {
 .hero__storeRow {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: clamp(12px, 3vw, 22px);
   margin-top: clamp(1.25rem, 3.5vw, 2rem);
@@ -434,21 +434,14 @@ code {
   text-align: center;
 }
 
-.metrics-carousel__trackWrap {
-  width: 100%;
-  overflow: hidden;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: linear-gradient(90deg, #fff8fb 0%, #fffdf8 100%);
-  box-shadow: 0 10px 26px rgba(143, 73, 246, 0.08);
-}
-
 .metrics-carousel__track {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: clamp(12px, 2vw, 20px);
-  min-width: max-content;
-  padding: clamp(10px, 2vw, 14px) clamp(14px, 3vw, 22px);
+  overflow: hidden;
+  min-width: 100%;
+  width: 100%;
+  padding: clamp(8px, 1.6vw, 12px) 0;
   animation: metrics-marquee 52s linear infinite;
 }
 
@@ -457,10 +450,10 @@ code {
   padding: 0.42rem 0.78rem;
   border-radius: 999px;
   background: rgba(143, 73, 246, 0.1);
-  border: 1px solid rgba(143, 73, 246, 0.2);
   color: var(--text-h);
   font-size: clamp(0.86rem, 1.4vw, 1rem);
   line-height: 1.2;
+  flex: 0 0 auto;
 }
 
 @keyframes metrics-marquee {
