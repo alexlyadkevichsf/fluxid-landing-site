@@ -415,10 +415,13 @@ code {
 .hero__subtitle {
   margin: clamp(0.85rem, 2.1vw, 1.2rem) 0 0;
   max-width: min(100%, 42rem);
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  line-height: 1.45;
+  font-size: clamp(11px, 1.8vw, 13px);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
   text-align: left;
-  color: color-mix(in srgb, var(--text-h) 82%, white);
+  color: var(--text);
 }
 
 .metrics-carousel {
