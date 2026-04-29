@@ -5,16 +5,17 @@ import { HeroLottie } from "../components/HeroLottie";
 import { PublicLottie } from "../components/PublicLottie";
 
 const HERO_TEXT = "Fluxid - We measure\nwhat truly\nmatters";
-const QR_IMAGE_SRC = "/qr_code_PNG33.png";
+const BASE_URL = import.meta.env.BASE_URL;
+const QR_IMAGE_SRC = `${BASE_URL}qr_code_PNG33.png`;
 
 const BADGE_APP_STORE_DARK = encodeURI(
-  "/Store=App Store, Type=Dark, Language=English@3x.png",
+  `${BASE_URL}Store=App Store, Type=Dark, Language=English@3x.png`,
 );
 const BADGE_GOOGLE_PLAY_DARK = encodeURI(
-  "/Store=Google Play, Type=Dark, Language=English@3x.png",
+  `${BASE_URL}Store=Google Play, Type=Dark, Language=English@3x.png`,
 );
 
-const MOBILE_SHOWCASE_LOTTIE = encodeURI("/Mobile App Showcase.json");
+const MOBILE_SHOWCASE_LOTTIE = encodeURI(`${BASE_URL}Mobile App Showcase.json`);
 
 const WHAT_WE_SOLVE_TITLE = (
   <>

@@ -34,10 +34,11 @@ function HeroLottieLoaded({ data, prefersReducedMotion }) {
 export function HeroLottie({ embed = false }) {
   const [data, setData] = useState(null);
   const prefersReducedMotion = usePrefersReducedMotion();
+  const healthLottieUrl = `${import.meta.env.BASE_URL}Health.json`;
 
   useEffect(() => {
     let cancelled = false;
-    fetch("/Health.json")
+    fetch(healthLottieUrl)
       .then((res) => res.json())
       .then((json) => {
         if (!cancelled) setData(json);
@@ -46,7 +47,7 @@ export function HeroLottie({ embed = false }) {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [healthLottieUrl]);
 
   const wrapClass = [
     "hero__lottieWrap",
