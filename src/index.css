@@ -64,6 +64,29 @@
     padding-inline: var(--page-inline);
   }
 
+  .home__qrStrip__codes {
+    max-width: 100%;
+    gap: clamp(16px, 4.5vw, 28px);
+  }
+
+  .home__qrStrip .qr-item__img {
+    display: none;
+  }
+
+  .home__qrStrip .qr-item {
+    width: min(220px, 78vw);
+  }
+
+  .home__qrStrip .qr-item__badgeLink {
+    margin-top: 0;
+  }
+
+  .home__qrStrip .qr-item__badge {
+    max-height: none;
+    max-width: min(260px, 100%);
+    margin-inline: auto;
+  }
+
   .footer {
     padding-inline: var(--page-inline);
   }
@@ -692,6 +715,25 @@ code {
   max-height: 44px;
   object-fit: contain;
   object-position: center;
+}
+
+@media (min-width: 841px) {
+  .home__qrStrip__codes {
+    max-width: min(100%, 44rem);
+    gap: clamp(28px, 5vw, 56px);
+  }
+
+  .home__qrStrip--decorCurve .home__qrStrip__codes {
+    max-width: min(100%, 44rem);
+  }
+
+  .qr-item {
+    width: min(280px, 34vw);
+  }
+
+  .qr-item__badge {
+    max-height: 52px;
+  }
 }
 
 .storeButton {
@@ -1740,9 +1782,5 @@ code {
 @media (max-width: 760px) {
   :root {
     --scroll-padding-top: 11rem;
-  }
-
-  .home__qrStrip__codes {
-    display: none;
   }
 }
