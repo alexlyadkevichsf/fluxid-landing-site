@@ -1270,20 +1270,13 @@ code {
   position: sticky;
   top: 0;
   z-index: 100;
+  isolation: isolate;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
   gap: clamp(8px, 2vw, 20px);
   padding: 20px var(--page-inline);
   background: color-mix(in srgb, var(--bg) 92%, #ffffff);
-}
-
-.topbar__end {
-  display: flex;
-  align-items: center;
-  gap: clamp(8px, 1.8vw, 14px);
-  flex-shrink: 0;
-  margin-left: auto;
 }
 
 .topbar__logo {
@@ -1422,6 +1415,7 @@ code {
 }
 
 .topbar__tryBtn {
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1471,6 +1465,49 @@ code {
 }
 
 @media (max-width: 840px) {
+  .topbar {
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .topbar__logo {
+    position: relative;
+    z-index: 2;
+  }
+
+  .topbar__tryBtn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    max-width: min(248px, calc(100vw - 8rem));
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 8px 0;
+    min-height: unset;
+    border-radius: 0;
+    background-image:
+      linear-gradient(90deg, #ff2d8d 0%, #ff5f73 52%, #ffa24f 100%),
+      linear-gradient(var(--text), var(--text));
+    background-size: 0% 100%, 100% 100%;
+    border: none;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .topbar__tryBtn:hover {
+    background-size: 100% 100%, 100% 100%;
+  }
+
+  .topbar__burger {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    display: inline-flex;
+  }
+
   .topbar__nav:not(.topbar__nav--open) {
     visibility: hidden;
     pointer-events: none;
@@ -1516,29 +1553,6 @@ code {
     text-align: left;
     box-sizing: border-box;
     border-radius: 12px;
-  }
-
-  .topbar__burger {
-    display: inline-flex;
-  }
-
-  .topbar__tryBtn {
-    padding: 8px 0;
-    min-height: unset;
-    border-radius: 0;
-    background-image:
-      linear-gradient(90deg, #ff2d8d 0%, #ff5f73 52%, #ffa24f 100%),
-      linear-gradient(var(--text), var(--text));
-    background-size: 0% 100%, 100% 100%;
-    border: none;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .topbar__tryBtn:hover {
-    background-size: 100% 100%, 100% 100%;
   }
 
   .topbar--menuOpen {

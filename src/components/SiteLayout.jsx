@@ -93,27 +93,25 @@ export function SiteLayout() {
           </Link>
         </nav>
 
-        <div className="topbar__end">
-          <Link
-            to="/#try-it-now"
-            className="topbar__tryBtn"
-            onClick={closeNav}
-          >
-            Get Started Today
-          </Link>
-          <button
-            type="button"
-            className={`topbar__burger ${menuOpen ? "topbar__burger--open" : ""}`}
-            aria-expanded={menuOpen}
-            aria-controls="topbar-menu"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            onClick={() => setMenuOpen((v) => !v)}
-          >
-            <span className="topbar__burgerLine" />
-            <span className="topbar__burgerLine" />
-            <span className="topbar__burgerLine" />
-          </button>
-        </div>
+        <Link
+          to="/#try-it-now"
+          className="topbar__tryBtn"
+          onClick={closeNav}
+        >
+          Get Started Today
+        </Link>
+        <button
+          type="button"
+          className={`topbar__burger ${menuOpen ? "topbar__burger--open" : ""}`}
+          aria-expanded={menuOpen}
+          aria-controls="topbar-menu"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          onClick={() => setMenuOpen((v) => !v)}
+        >
+          <span className="topbar__burgerLine" />
+          <span className="topbar__burgerLine" />
+          <span className="topbar__burgerLine" />
+        </button>
       </header>
       <div
         className={menuOpen ? "topbar__backdrop topbar__backdrop--visible" : "topbar__backdrop"}
