@@ -369,9 +369,6 @@ export function Home() {
                 Yearly (−20%)
               </button>
             </div>
-            <p className="pricing__billingNote">
-              Annual billing applies a {PRICING_ANNUAL_DISCOUNT * 100}% discount versus paying monthly for twelve months.
-            </p>
             <ul className="pricing__grid">
               {PRICING_PLANS.map((plan) => (
                 <li

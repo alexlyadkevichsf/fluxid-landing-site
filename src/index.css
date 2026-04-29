@@ -928,15 +928,7 @@ code {
   border-radius: 999px;
   background: color-mix(in srgb, var(--accent-bg) 88%, var(--border));
   gap: 4px;
-  margin-bottom: clamp(0.45rem, 1.2vw, 0.65rem);
-}
-
-.pricing__billingNote {
-  margin: 0 auto clamp(1rem, 2.8vw, 1.35rem);
-  max-width: min(34rem, 100%);
-  font-size: clamp(11px, 1.65vw, 13px);
-  line-height: 1.38;
-  color: var(--text);
+  margin-bottom: clamp(1.1rem, 2.5vw, 1.5rem);
 }
 
 .pricing__seg {
