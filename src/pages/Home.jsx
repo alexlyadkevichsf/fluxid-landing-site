@@ -17,7 +17,7 @@ const BADGE_GOOGLE_PLAY_DARK = encodeURI(
 
 const MOBILE_SHOWCASE_LOTTIE = encodeURI(`${BASE_URL}Mobile App Showcase.json`);
 const HERO_SUBTITLE =
-  "A mobile app that measures your body parameters and alerts you to potential health issues.";
+  "A mobile app that measures your body parameters\nand alerts you to potential health issues.";
 const BODY_METRICS_ITEMS = [
   "Body Mass Index",
   "Pignet Index",

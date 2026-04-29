@@ -414,12 +414,13 @@ code {
 
 .hero__subtitle {
   margin: clamp(0.85rem, 2.1vw, 1.2rem) 0 0;
-  max-width: min(100%, 42rem);
-  font-size: clamp(11px, 1.8vw, 13px);
+  max-width: min(100%, 52rem);
+  font-size: clamp(14px, 2.2vw, 18px);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   line-height: 1.4;
+  white-space: pre-line;
   text-align: left;
   color: var(--text);
 }
